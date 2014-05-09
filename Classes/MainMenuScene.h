@@ -3,7 +3,7 @@
 
 #include "cocos2d.h"
 
-class MainMenuScene : public cocos2d::Layer
+class MainMenuScene : cocos2d::Layer
 {
 public:
     // there's no 'id' in cpp, so we recommend returning the class instance pointer
