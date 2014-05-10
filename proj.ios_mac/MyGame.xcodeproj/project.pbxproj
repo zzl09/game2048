@@ -19,6 +19,7 @@
 		1AFAF8BE16D35E4900DB1158 /* HelloWorld.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AFAF8BB16D35E4900DB1158 /* HelloWorld.png */; };
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
+		1F3012B7191D083E0088C9D9 /* MainMenuLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1F3012B6191D083E0088C9D9 /* MainMenuLayer.cpp */; };
 		288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
 		503AE10017EB989F00D1A890 /* AppController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 503AE0FB17EB989F00D1A890 /* AppController.mm */; };
 		503AE10117EB989F00D1A890 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 503AE0FC17EB989F00D1A890 /* main.m */; };
@@ -169,6 +170,8 @@
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D6058910D05DD3D006BFB54 /* MyGame iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MyGame iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		1F3012B5191D083E0088C9D9 /* MainMenuLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainMenuLayer.h; path = ../Classes/MainMenuLayer.h; sourceTree = "<group>"; };
+		1F3012B6191D083E0088C9D9 /* MainMenuLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MainMenuLayer.cpp; path = ../Classes/MainMenuLayer.cpp; sourceTree = "<group>"; };
 		288765A40DF7441C002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		503AE0FA17EB989F00D1A890 /* AppController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppController.h; path = ios/AppController.h; sourceTree = SOURCE_ROOT; };
 		503AE0FB17EB989F00D1A890 /* AppController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppController.mm; path = ios/AppController.mm; sourceTree = SOURCE_ROOT; };
@@ -285,6 +288,24 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		1F3012B8191E68970088C9D9 /* scene */ = {
+			isa = PBXGroup;
+			children = (
+				1AFAF8B516D35DE700DB1158 /* MainMenuScene.cpp */,
+				1AFAF8B616D35DE700DB1158 /* MainMenuScene.h */,
+			);
+			name = scene;
+			sourceTree = "<group>";
+		};
+		1F3012B9191E68A20088C9D9 /* layer */ = {
+			isa = PBXGroup;
+			children = (
+				1F3012B5191D083E0088C9D9 /* MainMenuLayer.h */,
+				1F3012B6191D083E0088C9D9 /* MainMenuLayer.cpp */,
+			);
+			name = layer;
+			sourceTree = "<group>";
+		};
 		1F477DBA19177679004F853F /* model */ = {
 			isa = PBXGroup;
 			children = (
@@ -302,8 +323,8 @@
 		1F477DBC191776EE004F853F /* controler */ = {
 			isa = PBXGroup;
 			children = (
-				1AFAF8B516D35DE700DB1158 /* MainMenuScene.cpp */,
-				1AFAF8B616D35DE700DB1158 /* MainMenuScene.h */,
+				1F3012B9191E68A20088C9D9 /* layer */,
+				1F3012B8191E68970088C9D9 /* scene */,
 			);
 			name = controler;
 			sourceTree = "<group>";
@@ -551,6 +572,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
+				1F3012B7191D083E0088C9D9 /* MainMenuLayer.cpp in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
 				1AFAF8B716D35DE700DB1158 /* AppDelegate.cpp in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
