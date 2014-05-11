@@ -8,12 +8,11 @@
 
 #import "MainMenuLayer.h"
 USING_NS_CC;
+USING_NS_CC_EXT;
 
 // on "init" you need to initialize your instance
 bool MainMenuLayer::init()
 {
-    //////////////////////////////
-    // 1. super init first
     if (!Layer::init()) {
         return false;
     }
@@ -22,54 +21,28 @@ bool MainMenuLayer::init()
     Point origin = Director::getInstance()->getVisibleOrigin();
     CCLog("width:%f,height:%f", visibleSize.width, visibleSize.height);
     CCLog("pointX:%f,pointY:%f", origin.x, origin.y);
-
-    /////////////////////////////
-    // 2. add a menu item with "X" image, which is clicked to quit the program
-    //    you may modify it.
-
-    // add a "close" icon to exit the progress. it's an autorelease object
-    auto closeItem = MenuItemImage::create(
-        "CloseNormal.png",
-        "CloseSelected.png",
-        CC_CALLBACK_1(MainMenuLayer::menuCloseCallback, this));
-
-    //	closeItem->setPosition(Point(origin.x + visibleSize.width - closeItem->getContentSize().width/2 ,
-    //                                origin.y + closeItem->getContentSize().height/2));
-    closeItem->setPosition(Point(0, 0));
-
-    // create menu, it's an autorelease object
-    auto menu = Menu::create(closeItem, NULL);
-    menu->setPosition(Point::ZERO);
-    this->addChild(menu, 1);
-
-    /////////////////////////////
-    // 3. add your codes below...
-
-    // add a label shows "Hello World"
-    // create and initialize a label
-
-    auto label = LabelTTF::create("你好世界", "Arial", 24);
-
-    // position the label on the center of the screen
-    label->setPosition(Point(origin.x + visibleSize.width / 2,
-                             origin.y + visibleSize.height - label->getContentSize().height));
-
-    // add the label as a child to this layer
-    this->addChild(label, 1);
-
-    // add "HelloWorld" splash screen "
-    auto sprite = Sprite::create("HelloWorld.png");
-
-    // position the sprite on the center of the screen
-    sprite->setPosition(Point(visibleSize.width / 2 + origin.x, visibleSize.height / 2 + origin.y));
-
-    // add the sprite as a child to this layer
-    this->addChild(sprite, 0);
-
-    CCActionInterval* forward = CCMoveTo::create(1, Point(0, 0));
-    sprite->runAction(forward);
-
+    this->addChild(buildTestButton());
     return true;
+}
+
+ControlButton* MainMenuLayer::buildTestButton()
+{
+    /* 正常状态下的按钮图片 */
+    Scale9Sprite* btnNormal = Scale9Sprite::create("CloseNormal.png");
+
+    /* 点击状态下的按钮图片 */
+    Scale9Sprite* btnDown = Scale9Sprite::create("CloseSelected.png");
+
+    /* 按钮标题 */
+    CCLabelTTF* title = CCLabelTTF::create("Touch4234", "Marker Felt", 30);
+
+    /* 按钮的大小会根据标题自动调整 */
+    ControlButton* controlBtn = ControlButton::create(title, btnNormal);
+    controlBtn->setPreferredSize(CCSize(300, 50));
+    /* 设置按钮按下时的图片 */
+    controlBtn->setBackgroundSpriteForState(btnDown, Control::State::HIGH_LIGHTED);
+    controlBtn->setPosition(ccp(200, 200));
+    return controlBtn;
 }
 
 void MainMenuLayer::menuCloseCallback(Ref* pSender)
