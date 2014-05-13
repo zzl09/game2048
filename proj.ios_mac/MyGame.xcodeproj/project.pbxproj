@@ -22,6 +22,7 @@
 		1FB8D537191F247E00A084AB /* CloseSelected.9.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FB8D535191F247E00A084AB /* CloseSelected.9.png */; };
 		1FB8D53A191F269800A084AB /* CloseNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FB8D538191F269800A084AB /* CloseNormal.png */; };
 		1FB8D53B191F269800A084AB /* CloseSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FB8D539191F269800A084AB /* CloseSelected.png */; };
+		1FB8D53D19225CD900A084AB /* Account.9.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FB8D53C19225CD900A084AB /* Account.9.png */; };
 		288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
 		503AE10017EB989F00D1A890 /* AppController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 503AE0FB17EB989F00D1A890 /* AppController.mm */; };
 		503AE10117EB989F00D1A890 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 503AE0FC17EB989F00D1A890 /* main.m */; };
@@ -170,12 +171,13 @@
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D6058910D05DD3D006BFB54 /* MyGame iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MyGame iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		1F3012B5191D083E0088C9D9 /* MainMenuLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainMenuLayer.h; path = ../Classes/MainMenuLayer.h; sourceTree = "<group>"; };
+		1F3012B5191D083E0088C9D9 /* MainMenuLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainMenuLayer.h; path = ../Classes/MainMenuLayer.h; sourceTree = "<group>"; usesTabs = 0; };
 		1F3012B6191D083E0088C9D9 /* MainMenuLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MainMenuLayer.cpp; path = ../Classes/MainMenuLayer.cpp; sourceTree = "<group>"; };
 		1FB8D534191F247E00A084AB /* CloseNormal.9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CloseNormal.9.png; sourceTree = "<group>"; };
 		1FB8D535191F247E00A084AB /* CloseSelected.9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CloseSelected.9.png; sourceTree = "<group>"; };
 		1FB8D538191F269800A084AB /* CloseNormal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CloseNormal.png; sourceTree = "<group>"; };
 		1FB8D539191F269800A084AB /* CloseSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CloseSelected.png; sourceTree = "<group>"; };
+		1FB8D53C19225CD900A084AB /* Account.9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Account.9.png; sourceTree = "<group>"; };
 		288765A40DF7441C002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		503AE0FA17EB989F00D1A890 /* AppController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppController.h; path = ios/AppController.h; sourceTree = SOURCE_ROOT; };
 		503AE0FB17EB989F00D1A890 /* AppController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppController.mm; path = ios/AppController.mm; sourceTree = SOURCE_ROOT; };
@@ -396,6 +398,7 @@
 		78C7DDAA14EBA5050085D0C2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				1FB8D53C19225CD900A084AB /* Account.9.png */,
 				1FB8D538191F269800A084AB /* CloseNormal.png */,
 				1FB8D539191F269800A084AB /* CloseSelected.png */,
 				1FB8D534191F247E00A084AB /* CloseNormal.9.png */,
@@ -552,6 +555,7 @@
 				5087E78117EB970100C73F5D /* Icon-120.png in Resources */,
 				5087E78617EB970100C73F5D /* Icon-76.png in Resources */,
 				5087E77F17EB970100C73F5D /* Default@2x.png in Resources */,
+				1FB8D53D19225CD900A084AB /* Account.9.png in Resources */,
 				50EF629917ECD46A001EB2F8 /* Icon-100.png in Resources */,
 				5087E78317EB970100C73F5D /* Icon-152.png in Resources */,
 				5087E77D17EB970100C73F5D /* Default-568h@2x.png in Resources */,

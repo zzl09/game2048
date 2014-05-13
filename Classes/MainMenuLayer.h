@@ -8,7 +8,8 @@
 
 #import "cocos2d.h"
 #include "cocos-ext.h"
-
+#include "CocosGUI.h"
+USING_NS_CC_EXT;
 class MainMenuLayer : public cocos2d::Layer {
 public:
     // Here's a difference. Method 'init' in cocos2d-x returns bool, instead of returning 'id' in cocos2d-iphone
@@ -21,5 +22,8 @@ public:
     CREATE_FUNC(MainMenuLayer);
 
 private:
-    cocos2d::extension::ControlButton* buildTestButton();
+    ControlButton* buildTestButton();
+    cocos2d::ui::Button* buildTestUIButton();
+    void start_callback(cocos2d::CCObject* pSender);
+    void scene_callback(cocos2d::CCObject* pSender);
 };
