@@ -32,8 +32,8 @@ bool GameWorld::init()
 bool GameWorld::onTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event)
 {
     Point touchPoint = touch->getLocation();
-    firstX = touchPoint.x;
-    firstY = touchPoint.y;
+    touchX = touchPoint.x;
+    touchY = touchPoint.y;
     return true;
 }
 void GameWorld::onTouchEnded(cocos2d::Touch* touch, cocos2d::Event* event)
@@ -41,8 +41,8 @@ void GameWorld::onTouchEnded(cocos2d::Touch* touch, cocos2d::Event* event)
     int offest = 5;
     bool isMoved = false;
     Point touchPoint = touch->getLocation();
-    endX = firstX - touchPoint.x;
-    endY = firstY - touchPoint.y;
+    int endX = touchX - touchPoint.x;
+    int endY = touchY - touchPoint.y;
     if (abs(endX) > abs(endY)) {
         if (endX + offest > 0) {
             isMoved = moveLeft();
@@ -65,9 +65,9 @@ void GameWorld::createNumSprite(cocos2d::Size size)
 {
     int margin = 28;
     int singleMargin = 20;
-    int singleLon = (size.width - margin) / LINE_CARD_NUM;
-    for (int i = 0; i < LINE_CARD_NUM; i++) {
-        for (int j = 0; j < LINE_CARD_NUM; j++) {
+    int singleLon = (size.width - margin) / LINE_COUNT;
+    for (int i = 0; i < LINE_COUNT; i++) {
+        for (int j = 0; j < LINE_COUNT; j++) {
             NumSprite* cardSprite = NumSprite::createNumSprite(0, singleLon, singleLon, singleLon * i + singleMargin, singleLon * j + singleMargin + size.height / 6);
             numSprites[i][j] = cardSprite;
             addChild(cardSprite);
@@ -79,8 +79,8 @@ void GameWorld::createNumSprite(cocos2d::Size size)
 void GameWorld::randomFill()
 {
     int emptyCount = 0;
-    for (int i = 0; i < LINE_CARD_NUM; i++) {
-        for (int j = 0; j < LINE_CARD_NUM; j++) {
+    for (int i = 0; i < LINE_COUNT; i++) {
+        for (int j = 0; j < LINE_COUNT; j++) {
             if (numSprites[i][j]->getNumber() <= 0) {
                 emptyCount++;
             }
@@ -91,8 +91,8 @@ void GameWorld::randomFill()
     }
     int randomIndex = DataUtil::getRand(0, emptyCount - 1);
     emptyCount = 0;
-    for (int i = 0; i < LINE_CARD_NUM; i++) {
-        for (int j = 0; j < LINE_CARD_NUM; j++) {
+    for (int i = 0; i < LINE_COUNT; i++) {
+        for (int j = 0; j < LINE_COUNT; j++) {
             if (numSprites[i][j]->getNumber() <= 0) {
                 if (emptyCount == randomIndex) {
                     numSprites[i][j]->setNumber(DataUtil::getRand(1, 2) * 2);
@@ -107,9 +107,9 @@ void GameWorld::randomFill()
 bool GameWorld::moveLeft()
 {
     bool result = false;
-    for (int j = 0; j < LINE_CARD_NUM; j++) {
-        for (int i = 0; i < LINE_CARD_NUM; i++) {
-            for (int ii = i + 1; ii < LINE_CARD_NUM; ii++) {
+    for (int j = 0; j < LINE_COUNT; j++) {
+        for (int i = 0; i < LINE_COUNT; i++) {
+            for (int ii = i + 1; ii < LINE_COUNT; ii++) {
                 if (numSprites[ii][j]->getNumber() > 0) {
                     if (numSprites[i][j]->getNumber() <= 0) {
                         numSprites[i][j]->setNumber(numSprites[ii][j]->getNumber());
@@ -132,8 +132,8 @@ bool GameWorld::moveLeft()
 bool GameWorld::moveRight()
 {
     bool result = false;
-    for (int j = 0; j < LINE_CARD_NUM; j++) {
-        for (int i = LINE_CARD_NUM - 1; i >= 0; i--) {
+    for (int j = 0; j < LINE_COUNT; j++) {
+        for (int i = LINE_COUNT - 1; i >= 0; i--) {
             for (int ii = i - 1; ii >= 0; ii--) {
                 if (numSprites[ii][j]->getNumber() > 0) {
                     if (numSprites[i][j]->getNumber() <= 0) {
@@ -157,9 +157,9 @@ bool GameWorld::moveRight()
 bool GameWorld::moveDown()
 {
     bool result = false;
-    for (int i = 0; i < LINE_CARD_NUM; i++) {
-        for (int j = 0; j < LINE_CARD_NUM; j++) {
-            for (int jj = j + 1; jj < LINE_CARD_NUM; jj++) {
+    for (int i = 0; i < LINE_COUNT; i++) {
+        for (int j = 0; j < LINE_COUNT; j++) {
+            for (int jj = j + 1; jj < LINE_COUNT; jj++) {
                 if (numSprites[i][jj]->getNumber() > 0) {
                     if (numSprites[i][j]->getNumber() <= 0) {
                         numSprites[i][j]->setNumber(numSprites[i][jj]->getNumber());
@@ -182,8 +182,8 @@ bool GameWorld::moveDown()
 bool GameWorld::moveUp()
 {
     bool result = false;
-    for (int i = 0; i < LINE_CARD_NUM; i++) {
-        for (int j = LINE_CARD_NUM - 1; j >= 0; j--) {
+    for (int i = 0; i < LINE_COUNT; i++) {
+        for (int j = LINE_COUNT - 1; j >= 0; j--) {
             for (int jj = j - 1; jj >= 0; jj--) {
                 if (numSprites[i][jj]->getNumber() > 0) {
                     if (numSprites[i][j]->getNumber() <= 0) {
@@ -204,6 +204,7 @@ bool GameWorld::moveUp()
     return result;
 }
 
-bool GameWorld::isGameOver(){
-    
+bool GameWorld::isGameOver() {
+    for (int i=0; i<LINE_COUNT; i++) {
+    }
 };

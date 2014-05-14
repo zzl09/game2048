@@ -4,7 +4,7 @@
 #include "cocos2d.h"
 #include "NumSprite.h"
 class GameWorld : public cocos2d::Layer {
-    const static int LINE_CARD_NUM = 4;
+    const static int LINE_COUNT = 4;
 public:
     static cocos2d::Scene* createScene();
     virtual bool init();
@@ -12,8 +12,8 @@ public:
     virtual bool onTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event);
     virtual void onTouchEnded(cocos2d::Touch* touch, cocos2d::Event* event);
 private:
-    int firstX, firstY, endX, endY;
-    NumSprite* numSprites[LINE_CARD_NUM][LINE_CARD_NUM];
+    int touchX, touchY;
+    NumSprite* numSprites[LINE_COUNT][LINE_COUNT];
     bool isGameOver();
     void createNumSprite(cocos2d::Size size);
     void randomFill();
