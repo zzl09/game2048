@@ -6,21 +6,22 @@
 //  Copyright (c) 2014年 zzl09. All rights reserved.
 //
 
-#include "CardSprite.h"
+#include "NumSprite.h"
+#include "DataUtil.h"
 USING_NS_CC;
 
-CardSprite* CardSprite::createCardSprite(int number, int wight, int height, float positionX, float positionY)
+NumSprite* NumSprite::createNumSprite(int number, int wight, int height, float positionX, float positionY)
 {
-    CardSprite* result = new CardSprite();
+    NumSprite* result = new NumSprite();
     if (result && result->init()) {
         result->autorelease();
-        result->enemyInit(number, wight, height, positionX, positionY);
+        result->init(number, wight, height, positionX, positionY);
         return result;
     }
-    //    CC_SAFE_DELETE(result);
-    //    return NULL;
+    CC_SAFE_DELETE(result);
+    return NULL;
 }
-bool CardSprite::init()
+bool NumSprite::init()
 {
     if (!Sprite::init()) {
         return false;
@@ -28,23 +29,24 @@ bool CardSprite::init()
     return true;
 }
 
-void CardSprite::setNumber(int number)
+void NumSprite::setNumber(int number)
 {
     this->number = number;
-    //update ui
     if (number > 0) {
+        int fontSize = 100 - ((DataUtil::getNumberLength(number) - 1) * 20);
+        this->labelTTFCardNumber->setFontSize(fontSize);
         this->labelTTFCardNumber->setString(__String::createWithFormat("%i", number)->getCString());
     } else {
         this->labelTTFCardNumber->setString("");
     }
 }
 
-int CardSprite::getNumber()
+int NumSprite::getNumber()
 {
     return this->number;
 }
 
-void CardSprite::enemyInit(int number, int wight, int height, float positionX, float positionY)
+void NumSprite::init(int number, int wight, int height, float positionX, float positionY)
 {
     int bgSizeOffset = 15;
     this->number = number;
@@ -58,7 +60,7 @@ void CardSprite::enemyInit(int number, int wight, int height, float positionX, f
         showString = "";
     }
 
-    labelTTFCardNumber = cocos2d::LabelTTF::create(showString, "黑体", 80);
+    labelTTFCardNumber = cocos2d::LabelTTF::create(showString, "HiraKakuProN-W6", 100);
     labelTTFCardNumber->setPosition(Point(labelColorBG->getContentSize().width / 2, labelColorBG->getContentSize().height / 2));
     labelColorBG->addChild(labelTTFCardNumber);
     this->addChild(labelColorBG);

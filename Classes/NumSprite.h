@@ -11,21 +11,17 @@
 
 #include "cocos2d.h"
 
-class CardSprite : public cocos2d::Sprite {
+class NumSprite : public cocos2d::Sprite {
 public:
-    static CardSprite* createCardSprite(int number, int wight, int height, float positionX, float positionY);
+    static NumSprite* createNumSprite(int number, int wight, int height, float positionX, float positionY);
     virtual bool init();
-    CREATE_FUNC(CardSprite);
-
+    CREATE_FUNC(NumSprite);
     void setNumber(int number);
     int getNumber();
-
 private:
     int number;
-    void enemyInit(int number, int wight, int height, float positionX, float positionY);
-
-    //show
     cocos2d::LabelTTF* labelTTFCardNumber;
     cocos2d::LayerColor* labelColorBG;
+    void init(int number, int wight, int height, float positionX, float positionY);
 };
 #endif /* defined(__MyGame__CardSprite__) */

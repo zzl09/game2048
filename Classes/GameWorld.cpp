@@ -1,5 +1,6 @@
 #include "GameWorld.h"
-#include "CardSprite.h"
+#include "NumSprite.h"
+#include "DataUtil.h"
 USING_NS_CC;
 Scene* GameWorld::createScene()
 {
@@ -17,11 +18,14 @@ bool GameWorld::init()
 
     Size visiableSize = Director::getInstance()->getVisibleSize();
 
+    LayerColor* layerColorBg = LayerColor::create(Color4B(180, 170, 160, 255));
+    this->addChild(layerColorBg);
+
     EventListenerTouchOneByOne* touchListener = EventListenerTouchOneByOne::create();
     touchListener->onTouchBegan = CC_CALLBACK_2(GameWorld::onTouchBegan, this);
     touchListener->onTouchEnded = CC_CALLBACK_2(GameWorld::onTouchEnded, this);
     _eventDispatcher->addEventListenerWithSceneGraphPriority(touchListener, this);
-    createCardSprite(visiableSize);
+    createNumSprite(visiableSize);
     return true;
 }
 
@@ -35,50 +39,171 @@ bool GameWorld::onTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event)
 void GameWorld::onTouchEnded(cocos2d::Touch* touch, cocos2d::Event* event)
 {
     int offest = 5;
+    bool isMoved = false;
     Point touchPoint = touch->getLocation();
     endX = firstX - touchPoint.x;
     endY = firstY - touchPoint.y;
     if (abs(endX) > abs(endY)) {
-        if (endX + 5 > 0) {
-            doLeft();
+        if (endX + offest > 0) {
+            isMoved = moveLeft();
         } else {
-            doRight();
+            isMoved = moveRight();
         }
     } else {
-        if (endY + 5 > 0) {
-            doDown();
+        if (endY + offest > 0) {
+            isMoved = moveDown();
         } else {
-            doUp();
+            isMoved = moveUp();
         }
+    }
+    if (isMoved) {
+        randomFill();
     }
 }
 
-void GameWorld::createCardSprite(cocos2d::Size size)
+void GameWorld::createNumSprite(cocos2d::Size size)
 {
     int margin = 28;
     int singleMargin = 20;
-    int singleLon = (size.width - 28) / 4;
-
-    for (int i = 0; i < 4; i++) {
-        for (int j = 0; j < 4; j++) {
-            CardSprite* cardSprite = CardSprite::createCardSprite(i+j+1, singleLon, singleLon, singleLon * i + 20, singleLon * j + 20 + size.height / 6);
+    int singleLon = (size.width - margin) / LINE_CARD_NUM;
+    for (int i = 0; i < LINE_CARD_NUM; i++) {
+        for (int j = 0; j < LINE_CARD_NUM; j++) {
+            NumSprite* cardSprite = NumSprite::createNumSprite(0, singleLon, singleLon, singleLon * i + singleMargin, singleLon * j + singleMargin + size.height / 6);
+            numSprites[i][j] = cardSprite;
             addChild(cardSprite);
         }
     }
+    randomFill();
 }
-bool GameWorld::doLeft()
+
+void GameWorld::randomFill()
 {
-    log("doLeft");
+    int emptyCount = 0;
+    for (int i = 0; i < LINE_CARD_NUM; i++) {
+        for (int j = 0; j < LINE_CARD_NUM; j++) {
+            if (numSprites[i][j]->getNumber() <= 0) {
+                emptyCount++;
+            }
+        }
+    }
+    if (emptyCount == 0) {
+        return;
+    }
+    int randomIndex = DataUtil::getRand(0, emptyCount - 1);
+    emptyCount = 0;
+    for (int i = 0; i < LINE_CARD_NUM; i++) {
+        for (int j = 0; j < LINE_CARD_NUM; j++) {
+            if (numSprites[i][j]->getNumber() <= 0) {
+                if (emptyCount == randomIndex) {
+                    numSprites[i][j]->setNumber(DataUtil::getRand(1, 2) * 2);
+                    return;
+                }
+                emptyCount++;
+            }
+        }
+    }
 }
-bool GameWorld::doRight()
+
+bool GameWorld::moveLeft()
 {
-    log("doRight");
+    bool result = false;
+    for (int j = 0; j < LINE_CARD_NUM; j++) {
+        for (int i = 0; i < LINE_CARD_NUM; i++) {
+            for (int ii = i + 1; ii < LINE_CARD_NUM; ii++) {
+                if (numSprites[ii][j]->getNumber() > 0) {
+                    if (numSprites[i][j]->getNumber() <= 0) {
+                        numSprites[i][j]->setNumber(numSprites[ii][j]->getNumber());
+                        numSprites[ii][j]->setNumber(0);
+                        i--;
+                        result = true;
+                    } else if (numSprites[ii][j]->getNumber() == numSprites[i][j]->getNumber()) {
+                        numSprites[i][j]->setNumber(numSprites[i][j]->getNumber() * 2);
+                        numSprites[ii][j]->setNumber(0);
+                        result = true;
+                    }
+                    break;
+                }
+            }
+        }
+    }
+    return result;
 }
-bool GameWorld::doDown()
+
+bool GameWorld::moveRight()
 {
-    log("doDown");
+    bool result = false;
+    for (int j = 0; j < LINE_CARD_NUM; j++) {
+        for (int i = LINE_CARD_NUM - 1; i >= 0; i--) {
+            for (int ii = i - 1; ii >= 0; ii--) {
+                if (numSprites[ii][j]->getNumber() > 0) {
+                    if (numSprites[i][j]->getNumber() <= 0) {
+                        numSprites[i][j]->setNumber(numSprites[ii][j]->getNumber());
+                        numSprites[ii][j]->setNumber(0);
+                        i++;
+                        result = true;
+                    } else if (numSprites[ii][j]->getNumber() == numSprites[i][j]->getNumber()) {
+                        numSprites[i][j]->setNumber(numSprites[i][j]->getNumber() * 2);
+                        numSprites[ii][j]->setNumber(0);
+                        result = true;
+                    }
+                    break;
+                }
+            }
+        }
+    }
+    return result;
 }
-bool GameWorld::doUp()
+
+bool GameWorld::moveDown()
 {
-    log("doUp");
+    bool result = false;
+    for (int i = 0; i < LINE_CARD_NUM; i++) {
+        for (int j = 0; j < LINE_CARD_NUM; j++) {
+            for (int jj = j + 1; jj < LINE_CARD_NUM; jj++) {
+                if (numSprites[i][jj]->getNumber() > 0) {
+                    if (numSprites[i][j]->getNumber() <= 0) {
+                        numSprites[i][j]->setNumber(numSprites[i][jj]->getNumber());
+                        numSprites[i][jj]->setNumber(0);
+                        j--;
+                        result = true;
+                    } else if (numSprites[i][jj]->getNumber() == numSprites[i][j]->getNumber()) {
+                        numSprites[i][j]->setNumber(numSprites[i][j]->getNumber() * 2);
+                        numSprites[i][jj]->setNumber(0);
+                        result = true;
+                    }
+                    break;
+                }
+            }
+        }
+    }
+    return result;
 }
+
+bool GameWorld::moveUp()
+{
+    bool result = false;
+    for (int i = 0; i < LINE_CARD_NUM; i++) {
+        for (int j = LINE_CARD_NUM - 1; j >= 0; j--) {
+            for (int jj = j - 1; jj >= 0; jj--) {
+                if (numSprites[i][jj]->getNumber() > 0) {
+                    if (numSprites[i][j]->getNumber() <= 0) {
+                        numSprites[i][j]->setNumber(numSprites[i][jj]->getNumber());
+                        numSprites[i][jj]->setNumber(0);
+                        j++;
+                        result = true;
+                    } else if (numSprites[i][jj]->getNumber() == numSprites[i][j]->getNumber()) {
+                        numSprites[i][j]->setNumber(numSprites[i][j]->getNumber() * 2);
+                        numSprites[i][jj]->setNumber(0);
+                        result = true;
+                    }
+                    break;
+                }
+            }
+        }
+    }
+    return result;
+}
+
+bool GameWorld::isGameOver(){
+    
+};
