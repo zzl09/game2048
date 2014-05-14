@@ -13,7 +13,10 @@ public:
     virtual void onTouchEnded(cocos2d::Touch* touch, cocos2d::Event* event);
 private:
     int touchX, touchY;
+    long score;
+    
     NumSprite* numSprites[LINE_COUNT][LINE_COUNT];
+    cocos2d::LabelTTF* labelTTFScore;
     bool isGameOver();
     void createNumSprite(cocos2d::Size size);
     void randomFill();

@@ -17,10 +17,15 @@ bool GameWorld::init()
     }
 
     Size visiableSize = Director::getInstance()->getVisibleSize();
-
+    score = 0;
     LayerColor* layerColorBg = LayerColor::create(Color4B(180, 170, 160, 255));
+    labelTTFScore = cocos2d::LabelTTF::create("0", "HiraKakuProN-W6", 50);
+    labelTTFScore->setPosition(Point(visiableSize.width / 2 + 120, visiableSize.height - 150));
     this->addChild(layerColorBg);
-
+    this->addChild(labelTTFScore);
+    LabelTTF *labelTTFScoreNote = cocos2d::LabelTTF::create("score: ", "HiraKakuProN-W6", 50);
+    labelTTFScoreNote->setPosition(Point(visiableSize.width / 2 , visiableSize.height - 150));
+    this->addChild(labelTTFScoreNote);
     EventListenerTouchOneByOne* touchListener = EventListenerTouchOneByOne::create();
     touchListener->onTouchBegan = CC_CALLBACK_2(GameWorld::onTouchBegan, this);
     touchListener->onTouchEnded = CC_CALLBACK_2(GameWorld::onTouchEnded, this);
@@ -58,7 +63,11 @@ void GameWorld::onTouchEnded(cocos2d::Touch* touch, cocos2d::Event* event)
     }
     if (isMoved) {
         randomFill();
+        if (isGameOver()) {
+            Director::getInstance()->replaceScene(TransitionFade::create(1, GameWorld::createScene()));
+        }
     }
+    labelTTFScore->setString(__String::createWithFormat("%ld", score)->getCString());
 }
 
 void GameWorld::createNumSprite(cocos2d::Size size)
@@ -114,11 +123,13 @@ bool GameWorld::moveLeft()
                     if (numSprites[i][j]->getNumber() <= 0) {
                         numSprites[i][j]->setNumber(numSprites[ii][j]->getNumber());
                         numSprites[ii][j]->setNumber(0);
+                        score = score + numSprites[i][j]->getNumber();
                         i--;
                         result = true;
                     } else if (numSprites[ii][j]->getNumber() == numSprites[i][j]->getNumber()) {
                         numSprites[i][j]->setNumber(numSprites[i][j]->getNumber() * 2);
                         numSprites[ii][j]->setNumber(0);
+                        score = score + numSprites[i][j]->getNumber();
                         result = true;
                     }
                     break;
@@ -139,11 +150,13 @@ bool GameWorld::moveRight()
                     if (numSprites[i][j]->getNumber() <= 0) {
                         numSprites[i][j]->setNumber(numSprites[ii][j]->getNumber());
                         numSprites[ii][j]->setNumber(0);
+                        score = score + numSprites[i][j]->getNumber();
                         i++;
                         result = true;
                     } else if (numSprites[ii][j]->getNumber() == numSprites[i][j]->getNumber()) {
                         numSprites[i][j]->setNumber(numSprites[i][j]->getNumber() * 2);
                         numSprites[ii][j]->setNumber(0);
+                        score = score + numSprites[i][j]->getNumber();
                         result = true;
                     }
                     break;
@@ -164,11 +177,13 @@ bool GameWorld::moveDown()
                     if (numSprites[i][j]->getNumber() <= 0) {
                         numSprites[i][j]->setNumber(numSprites[i][jj]->getNumber());
                         numSprites[i][jj]->setNumber(0);
+                        score = score + numSprites[i][j]->getNumber();
                         j--;
                         result = true;
                     } else if (numSprites[i][jj]->getNumber() == numSprites[i][j]->getNumber()) {
                         numSprites[i][j]->setNumber(numSprites[i][j]->getNumber() * 2);
                         numSprites[i][jj]->setNumber(0);
+                        score = score + numSprites[i][j]->getNumber();
                         result = true;
                     }
                     break;
@@ -190,10 +205,12 @@ bool GameWorld::moveUp()
                         numSprites[i][j]->setNumber(numSprites[i][jj]->getNumber());
                         numSprites[i][jj]->setNumber(0);
                         j++;
+                        score = score + numSprites[i][j]->getNumber();
                         result = true;
                     } else if (numSprites[i][jj]->getNumber() == numSprites[i][j]->getNumber()) {
                         numSprites[i][j]->setNumber(numSprites[i][j]->getNumber() * 2);
                         numSprites[i][jj]->setNumber(0);
+                        score = score + numSprites[i][j]->getNumber();
                         result = true;
                     }
                     break;
@@ -204,7 +221,19 @@ bool GameWorld::moveUp()
     return result;
 }
 
-bool GameWorld::isGameOver() {
-    for (int i=0; i<LINE_COUNT; i++) {
+bool GameWorld::isGameOver()
+{
+    for (int i = 0; i < LINE_COUNT; i++) {
+        for (int j = 0; j < LINE_COUNT; j++) {
+            NumSprite* numSprite = numSprites[i][j];
+            if (numSprite->getNumber() <= 0) {
+                return false;
+            } else if (i > 0 && numSprite->getNumber() == numSprites[i - 1][j]->getNumber()) {
+                return false;
+            } else if (j > 0 && numSprite->getNumber() == numSprites[i][j - 1]->getNumber()) {
+                return false;
+            }
+        }
     }
+    return true;
 };
