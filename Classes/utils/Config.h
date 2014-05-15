@@ -10,7 +10,7 @@
 #define MyGame_Config_h
 class Config {
 public:
-    static const int LINE_COUNT = 4;
+    static const int LINE_COUNT = 4 ;
 };
 
 #endif
