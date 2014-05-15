@@ -13,17 +13,17 @@
 		1AC6FB31180E99EB004C840B /* libcocos2dx-extensions iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AC6FB09180E9839004C840B /* libcocos2dx-extensions iOS.a */; };
 		1AC6FB32180E99EB004C840B /* libCocosDenshion iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AC6FB0F180E9839004C840B /* libCocosDenshion iOS.a */; };
 		1AFAF8B716D35DE700DB1158 /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1AFAF8B316D35DE700DB1158 /* AppDelegate.cpp */; };
-		1AFAF8B816D35DE700DB1158 /* GameWorld.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1AFAF8B516D35DE700DB1158 /* GameWorld.cpp */; };
 		1AFAF8BE16D35E4900DB1158 /* HelloWorld.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AFAF8BB16D35E4900DB1158 /* HelloWorld.png */; };
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
-		1FAED1791923937A00725F81 /* DataUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1FAED1771923937A00725F81 /* DataUtil.cpp */; };
+		1FAED1861924986C00725F81 /* DataUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1FAED17D1924986C00725F81 /* DataUtil.cpp */; };
+		1FAED1871924986C00725F81 /* GameWorld.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1FAED1801924986C00725F81 /* GameWorld.cpp */; };
+		1FAED1881924986C00725F81 /* NumSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1FAED1831924986C00725F81 /* NumSprite.cpp */; };
 		1FB8D536191F247E00A084AB /* CloseNormal.9.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FB8D534191F247E00A084AB /* CloseNormal.9.png */; };
 		1FB8D537191F247E00A084AB /* CloseSelected.9.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FB8D535191F247E00A084AB /* CloseSelected.9.png */; };
 		1FB8D53A191F269800A084AB /* CloseNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FB8D538191F269800A084AB /* CloseNormal.png */; };
 		1FB8D53B191F269800A084AB /* CloseSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FB8D539191F269800A084AB /* CloseSelected.png */; };
 		1FB8D53D19225CD900A084AB /* Account.9.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FB8D53C19225CD900A084AB /* Account.9.png */; };
-		1FB8D5401923574E00A084AB /* NumSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1FB8D53E1923574E00A084AB /* NumSprite.cpp */; };
 		288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
 		503AE10017EB989F00D1A890 /* AppController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 503AE0FB17EB989F00D1A890 /* AppController.mm */; };
 		503AE10117EB989F00D1A890 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 503AE0FC17EB989F00D1A890 /* main.m */; };
@@ -166,21 +166,21 @@
 		1ACB3243164770DE00914215 /* libcurl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcurl.a; path = ../../cocos2dx/platform/third_party/ios/libraries/libcurl.a; sourceTree = "<group>"; };
 		1AFAF8B316D35DE700DB1158 /* AppDelegate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AppDelegate.cpp; path = ../Classes/AppDelegate.cpp; sourceTree = "<group>"; };
 		1AFAF8B416D35DE700DB1158 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = ../Classes/AppDelegate.h; sourceTree = "<group>"; };
-		1AFAF8B516D35DE700DB1158 /* GameWorld.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GameWorld.cpp; path = ../Classes/GameWorld.cpp; sourceTree = "<group>"; };
-		1AFAF8B616D35DE700DB1158 /* GameWorld.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameWorld.h; path = ../Classes/GameWorld.h; sourceTree = "<group>"; };
 		1AFAF8BB16D35E4900DB1158 /* HelloWorld.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HelloWorld.png; sourceTree = "<group>"; };
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D6058910D05DD3D006BFB54 /* MyGame iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MyGame iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		1FAED1771923937A00725F81 /* DataUtil.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = DataUtil.cpp; path = ../Classes/DataUtil.cpp; sourceTree = "<group>"; };
-		1FAED1781923937A00725F81 /* DataUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DataUtil.h; path = ../Classes/DataUtil.h; sourceTree = "<group>"; };
+		1FAED17D1924986C00725F81 /* DataUtil.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DataUtil.cpp; sourceTree = "<group>"; };
+		1FAED17E1924986C00725F81 /* DataUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataUtil.h; sourceTree = "<group>"; };
+		1FAED1801924986C00725F81 /* GameWorld.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameWorld.cpp; sourceTree = "<group>"; };
+		1FAED1811924986C00725F81 /* GameWorld.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameWorld.h; sourceTree = "<group>"; };
+		1FAED1831924986C00725F81 /* NumSprite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NumSprite.cpp; sourceTree = "<group>"; };
+		1FAED1841924986C00725F81 /* NumSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NumSprite.h; sourceTree = "<group>"; };
 		1FB8D534191F247E00A084AB /* CloseNormal.9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CloseNormal.9.png; sourceTree = "<group>"; };
 		1FB8D535191F247E00A084AB /* CloseSelected.9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CloseSelected.9.png; sourceTree = "<group>"; };
 		1FB8D538191F269800A084AB /* CloseNormal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CloseNormal.png; sourceTree = "<group>"; };
 		1FB8D539191F269800A084AB /* CloseSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CloseSelected.png; sourceTree = "<group>"; };
 		1FB8D53C19225CD900A084AB /* Account.9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Account.9.png; sourceTree = "<group>"; };
-		1FB8D53E1923574E00A084AB /* NumSprite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = NumSprite.cpp; path = ../Classes/NumSprite.cpp; sourceTree = "<group>"; };
-		1FB8D53F1923574E00A084AB /* NumSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NumSprite.h; path = ../Classes/NumSprite.h; sourceTree = "<group>"; };
 		288765A40DF7441C002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		503AE0FA17EB989F00D1A890 /* AppController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppController.h; path = ios/AppController.h; sourceTree = SOURCE_ROOT; };
 		503AE0FB17EB989F00D1A890 /* AppController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppController.mm; path = ios/AppController.mm; sourceTree = SOURCE_ROOT; };
@@ -262,12 +262,12 @@
 		15AA9C4015B7EC450033D6C2 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				1FAED16F1923935A00725F81 /* utils */,
+				1FAED17C1924986C00725F81 /* utils */,
+				1FAED17F1924986C00725F81 /* controler */,
+				1FAED1821924986C00725F81 /* view */,
+				1FAED1851924986C00725F81 /* model */,
 				1AFAF8B316D35DE700DB1158 /* AppDelegate.cpp */,
 				1AFAF8B416D35DE700DB1158 /* AppDelegate.h */,
-				1F477DBC191776EE004F853F /* controler */,
-				1F477DBB191776D0004F853F /* view */,
-				1F477DBA19177679004F853F /* model */,
 			);
 			name = Classes;
 			path = ../classes;
@@ -298,38 +298,42 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		1F477DBA19177679004F853F /* model */ = {
+		1FAED17C1924986C00725F81 /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				1FAED17D1924986C00725F81 /* DataUtil.cpp */,
+				1FAED17E1924986C00725F81 /* DataUtil.h */,
+			);
+			name = utils;
+			path = ../Classes/utils;
+			sourceTree = "<group>";
+		};
+		1FAED17F1924986C00725F81 /* controler */ = {
+			isa = PBXGroup;
+			children = (
+				1FAED1801924986C00725F81 /* GameWorld.cpp */,
+				1FAED1811924986C00725F81 /* GameWorld.h */,
+			);
+			name = controler;
+			path = ../Classes/controler;
+			sourceTree = "<group>";
+		};
+		1FAED1821924986C00725F81 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				1FAED1831924986C00725F81 /* NumSprite.cpp */,
+				1FAED1841924986C00725F81 /* NumSprite.h */,
+			);
+			name = view;
+			path = ../Classes/view;
+			sourceTree = "<group>";
+		};
+		1FAED1851924986C00725F81 /* model */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			name = model;
-			sourceTree = "<group>";
-		};
-		1F477DBB191776D0004F853F /* view */ = {
-			isa = PBXGroup;
-			children = (
-				1FB8D53E1923574E00A084AB /* NumSprite.cpp */,
-				1FB8D53F1923574E00A084AB /* NumSprite.h */,
-			);
-			name = view;
-			sourceTree = "<group>";
-		};
-		1F477DBC191776EE004F853F /* controler */ = {
-			isa = PBXGroup;
-			children = (
-				1AFAF8B516D35DE700DB1158 /* GameWorld.cpp */,
-				1AFAF8B616D35DE700DB1158 /* GameWorld.h */,
-			);
-			name = controler;
-			sourceTree = "<group>";
-		};
-		1FAED16F1923935A00725F81 /* utils */ = {
-			isa = PBXGroup;
-			children = (
-				1FAED1771923937A00725F81 /* DataUtil.cpp */,
-				1FAED1781923937A00725F81 /* DataUtil.h */,
-			);
-			name = utils;
+			path = ../Classes/model;
 			sourceTree = "<group>";
 		};
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
@@ -580,13 +584,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1FAED1791923937A00725F81 /* DataUtil.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
-				1FB8D5401923574E00A084AB /* NumSprite.cpp in Sources */,
+				1FAED1871924986C00725F81 /* GameWorld.cpp in Sources */,
+				1FAED1861924986C00725F81 /* DataUtil.cpp in Sources */,
 				1AFAF8B716D35DE700DB1158 /* AppDelegate.cpp in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
-				1AFAF8B816D35DE700DB1158 /* GameWorld.cpp in Sources */,
+				1FAED1881924986C00725F81 /* NumSprite.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
