@@ -10,17 +10,18 @@
 #include "DataUtil.h"
 USING_NS_CC;
 
-NumSprite* NumSprite::createNumSprite(int number, int wight, int height, float positionX, float positionY)
+NumSprite* NumSprite::create(int number, int wight, int height, cocos2d::Point position)
 {
     NumSprite* result = new NumSprite();
     if (result && result->init()) {
         result->autorelease();
-        result->init(number, wight, height, positionX, positionY);
+        result->init(number, wight, height, position);
         return result;
     }
     CC_SAFE_DELETE(result);
     return NULL;
 }
+
 bool NumSprite::init()
 {
     if (!Sprite::init()) {
@@ -29,9 +30,21 @@ bool NumSprite::init()
     return true;
 }
 
-void NumSprite::setNumber(int number)
+
+
+void NumSprite::init(int number, int wight, int height, cocos2d::Point position)
 {
-    this->number = number;
+    int bgSizeOffset = 15;
+    labelColorBG = cocos2d::LayerColor::create(cocos2d::Color4B(200, 190, 180, 255), wight - bgSizeOffset, height - bgSizeOffset);
+    labelTTFCardNumber = cocos2d::LabelTTF::create("", "HiraKakuProN-W6", 100);
+    labelColorBG->setPosition(position);
+    labelTTFCardNumber->setPosition(Point(labelColorBG->getContentSize().width / 2, labelColorBG->getContentSize().height / 2));
+    labelColorBG->addChild(labelTTFCardNumber);
+    this->addChild(labelColorBG);
+    setNumber(number);
+}
+
+void NumSprite::updateUI(){
     if (number > 0) {
         int fontSize = 100 - ((DataUtil::getNumberLength(number) - 1) * 20);
         this->labelTTFCardNumber->setFontSize(fontSize);
@@ -41,27 +54,13 @@ void NumSprite::setNumber(int number)
     }
 }
 
+void NumSprite::setNumber(int number)
+{
+    this->number = number;
+    updateUI();
+}
+
 int NumSprite::getNumber()
 {
     return this->number;
-}
-
-void NumSprite::init(int number, int wight, int height, float positionX, float positionY)
-{
-    int bgSizeOffset = 15;
-    this->number = number;
-    labelColorBG = cocos2d::LayerColor::create(cocos2d::Color4B(200, 190, 180, 255), wight - bgSizeOffset, height - bgSizeOffset);
-    labelColorBG->setPosition(positionX, positionY);
-
-    std::string showString;
-    if (number > 0) {
-        showString = __String::createWithFormat("%i", number)->getCString();
-    } else {
-        showString = "";
-    }
-
-    labelTTFCardNumber = cocos2d::LabelTTF::create(showString, "HiraKakuProN-W6", 100);
-    labelTTFCardNumber->setPosition(Point(labelColorBG->getContentSize().width / 2, labelColorBG->getContentSize().height / 2));
-    labelColorBG->addChild(labelTTFCardNumber);
-    this->addChild(labelColorBG);
 }

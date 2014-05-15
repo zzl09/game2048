@@ -13,15 +13,17 @@
 
 class NumSprite : public cocos2d::Sprite {
 public:
-    static NumSprite* createNumSprite(int number, int wight, int height, float positionX, float positionY);
-    virtual bool init();
     CREATE_FUNC(NumSprite);
+    static NumSprite* create(int number, int wight, int height, cocos2d::Point position);
+    virtual bool init();
+    void init(int number, int wight, int height, cocos2d::Point position);
     void setNumber(int number);
     int getNumber();
+
 private:
+    void updateUI();
     int number;
     cocos2d::LabelTTF* labelTTFCardNumber;
     cocos2d::LayerColor* labelColorBG;
-    void init(int number, int wight, int height, float positionX, float positionY);
 };
-#endif /* defined(__MyGame__CardSprite__) */
+#endif
