@@ -10,13 +10,14 @@
 #define __MyGame__DataUtil__
 
 #include "cocos2d.h"
+
 class DataUtil {
 public:
-    /*产生一个从start到end间的随机数*/
+    /*create a random number from start to end*/
     static int getRand(int start, int end);
 
-    /*获得一个数字的长度*/
+    /*get a number length*/
     static int getNumberLength(int number);
 };
 
-#endif /* defined(__MyGame__DataUtil__) */
+#endif
