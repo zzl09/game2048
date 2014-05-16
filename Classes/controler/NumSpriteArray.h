@@ -9,7 +9,8 @@
 #define MyGame_NumSpriteArray_h
 
 #include "NumSprite.h"
-struct NumSpriteArray{
+#include "cocos2d.h"
+class NumSpriteArray : public cocos2d::Ref {
 public:
     NumSprite* numSprites[Config::LINE_COUNT][Config::LINE_COUNT];
 };
