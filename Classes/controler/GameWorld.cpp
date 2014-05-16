@@ -41,6 +41,8 @@ bool GameWorld::init()
 
     //init spriteMoveHelper
     numSpriteMoveHelper = NumSpriteMoveHelper::create(numSpriteArray);
+    numSpriteMoveHelper->retain();
+    
     return true;
 }
 

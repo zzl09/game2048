@@ -62,7 +62,7 @@ public:
      *  @return score
      */
     int moveRight();
-
+    
 private:
     NumSpriteArray* numSpritearray;
 };
