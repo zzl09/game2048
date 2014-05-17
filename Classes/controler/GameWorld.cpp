@@ -75,6 +75,7 @@ void GameWorld::onTouchEnded(cocos2d::Touch* touch, cocos2d::Event* event)
     }
     if (moveScore > 0) {
         randomFill();
+        scoreSprite->setScore(moveScore+scoreSprite->getScore());
         if (isGameOver()) {
             Director::getInstance()->replaceScene(TransitionFade::create(1, GameWorld::createScene()));
         }
