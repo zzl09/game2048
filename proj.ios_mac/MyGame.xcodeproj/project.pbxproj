@@ -16,7 +16,6 @@
 		1AFAF8BE16D35E4900DB1158 /* HelloWorld.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AFAF8BB16D35E4900DB1158 /* HelloWorld.png */; };
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
-		1F67E3731924D3B800E655CF /* NumSpriteArray.h in Sources */ = {isa = PBXBuildFile; fileRef = 1F67E3721924D3B800E655CF /* NumSpriteArray.h */; };
 		1FAED1861924986C00725F81 /* DataUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1FAED17D1924986C00725F81 /* DataUtil.cpp */; };
 		1FAED1871924986C00725F81 /* GameWorld.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1FAED1801924986C00725F81 /* GameWorld.cpp */; };
 		1FAED1881924986C00725F81 /* NumSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1FAED1831924986C00725F81 /* NumSprite.cpp */; };
@@ -173,7 +172,6 @@
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D6058910D05DD3D006BFB54 /* MyGame iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MyGame iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		1F67E3721924D3B800E655CF /* NumSpriteArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NumSpriteArray.h; path = ../controler/NumSpriteArray.h; sourceTree = "<group>"; };
 		1FAED17D1924986C00725F81 /* DataUtil.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DataUtil.cpp; sourceTree = "<group>"; };
 		1FAED17E1924986C00725F81 /* DataUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataUtil.h; sourceTree = "<group>"; };
 		1FAED1801924986C00725F81 /* GameWorld.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameWorld.cpp; sourceTree = "<group>"; };
@@ -187,6 +185,7 @@
 		1FB8D538191F269800A084AB /* CloseNormal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CloseNormal.png; sourceTree = "<group>"; };
 		1FB8D539191F269800A084AB /* CloseSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CloseSelected.png; sourceTree = "<group>"; };
 		1FB8D53C19225CD900A084AB /* Account.9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Account.9.png; sourceTree = "<group>"; };
+		1FC7008519285B7200034E07 /* NumSpriteArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NumSpriteArray.h; sourceTree = "<group>"; };
 		1FFDE19F1924AF4500F11588 /* NumSpriteMoveHelper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NumSpriteMoveHelper.cpp; sourceTree = "<group>"; };
 		1FFDE1A01924AF4500F11588 /* NumSpriteMoveHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NumSpriteMoveHelper.h; sourceTree = "<group>"; };
 		1FFDE1A21924CDF700F11588 /* Config.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
@@ -271,7 +270,7 @@
 		15AA9C4015B7EC450033D6C2 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				1F67E37B1924DA6C00E655CF /* entity */,
+				1FC7008419285B7200034E07 /* entity */,
 				1FAED17C1924986C00725F81 /* utils */,
 				1FAED17F1924986C00725F81 /* controler */,
 				1FAED1821924986C00725F81 /* view */,
@@ -306,15 +305,6 @@
 				1AC6FB0F180E9839004C840B /* libCocosDenshion iOS.a */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		1F67E37B1924DA6C00E655CF /* entity */ = {
-			isa = PBXGroup;
-			children = (
-				1F67E3721924D3B800E655CF /* NumSpriteArray.h */,
-			);
-			name = entity;
-			path = ../Classes/entity;
 			sourceTree = "<group>";
 		};
 		1FAED17C1924986C00725F81 /* utils */ = {
@@ -357,6 +347,15 @@
 			);
 			name = model;
 			path = ../Classes/model;
+			sourceTree = "<group>";
+		};
+		1FC7008419285B7200034E07 /* entity */ = {
+			isa = PBXGroup;
+			children = (
+				1FC7008519285B7200034E07 /* NumSpriteArray.h */,
+			);
+			name = entity;
+			path = ../Classes/entity;
 			sourceTree = "<group>";
 		};
 		1FFDE19E1924AF4500F11588 /* helper */ = {
@@ -617,7 +616,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
-				1F67E3731924D3B800E655CF /* NumSpriteArray.h in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
 				1FFDE1A11924AF4500F11588 /* NumSpriteMoveHelper.cpp in Sources */,
 				1FAED1871924986C00725F81 /* GameWorld.cpp in Sources */,
