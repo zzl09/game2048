@@ -25,6 +25,7 @@
 		1FB8D53A191F269800A084AB /* CloseNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FB8D538191F269800A084AB /* CloseNormal.png */; };
 		1FB8D53B191F269800A084AB /* CloseSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FB8D539191F269800A084AB /* CloseSelected.png */; };
 		1FB8D53D19225CD900A084AB /* Account.9.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FB8D53C19225CD900A084AB /* Account.9.png */; };
+		1FC700871928E7C600034E07 /* move.wav in Resources */ = {isa = PBXBuildFile; fileRef = 1FC700861928E7C600034E07 /* move.wav */; };
 		1FFDE1A11924AF4500F11588 /* NumSpriteMoveHelper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1FFDE19F1924AF4500F11588 /* NumSpriteMoveHelper.cpp */; };
 		288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
 		503AE10017EB989F00D1A890 /* AppController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 503AE0FB17EB989F00D1A890 /* AppController.mm */; };
@@ -186,6 +187,7 @@
 		1FB8D539191F269800A084AB /* CloseSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CloseSelected.png; sourceTree = "<group>"; };
 		1FB8D53C19225CD900A084AB /* Account.9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Account.9.png; sourceTree = "<group>"; };
 		1FC7008519285B7200034E07 /* NumSpriteArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NumSpriteArray.h; sourceTree = "<group>"; };
+		1FC700861928E7C600034E07 /* move.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = move.wav; sourceTree = "<group>"; };
 		1FFDE19F1924AF4500F11588 /* NumSpriteMoveHelper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NumSpriteMoveHelper.cpp; sourceTree = "<group>"; };
 		1FFDE1A01924AF4500F11588 /* NumSpriteMoveHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NumSpriteMoveHelper.h; sourceTree = "<group>"; };
 		1FFDE1A21924CDF700F11588 /* Config.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
@@ -430,6 +432,7 @@
 		78C7DDAA14EBA5050085D0C2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				1FC700861928E7C600034E07 /* move.wav */,
 				1FB8D53C19225CD900A084AB /* Account.9.png */,
 				1FB8D538191F269800A084AB /* CloseNormal.png */,
 				1FB8D539191F269800A084AB /* CloseSelected.png */,
@@ -598,6 +601,7 @@
 				50EF62A217ECD613001EB2F8 /* Icon-29.png in Resources */,
 				50EF629617ECD46A001EB2F8 /* Icon-40.png in Resources */,
 				5087E78217EB970100C73F5D /* Icon-144.png in Resources */,
+				1FC700871928E7C600034E07 /* move.wav in Resources */,
 				1FB8D537191F247E00A084AB /* CloseSelected.9.png in Resources */,
 				50EF629817ECD46A001EB2F8 /* Icon-80.png in Resources */,
 				5087E78417EB970100C73F5D /* Icon-57.png in Resources */,

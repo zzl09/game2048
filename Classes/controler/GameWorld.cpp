@@ -1,6 +1,8 @@
 #include "GameWorld.h"
 #include "NumSprite.h"
 #include "DataUtil.h"
+#import "SimpleAudioEngine.h"
+
 USING_NS_CC;
 Scene* GameWorld::createScene()
 {
@@ -73,6 +75,7 @@ void GameWorld::onTouchEnded(cocos2d::Touch* touch, cocos2d::Event* event)
     }
     if (moveScore > 0) {
         randomFill();
+        CocosDenshion::SimpleAudioEngine::sharedEngine()->playBackgroundMusic("move.wav", false);
         scoreSprite->setScore(moveScore+scoreSprite->getScore());
         if (isGameOver()) {
             Director::getInstance()->replaceScene(TransitionFade::create(1, GameWorld::createScene()));
