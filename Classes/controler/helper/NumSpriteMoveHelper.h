@@ -63,8 +63,14 @@ public:
      */
     int moveRight();
     
+    NumSpriteMoveHelper(){
+        numSpriteArray=NULL;
+    }
+    ~NumSpriteMoveHelper(){
+        CC_SAFE_RELEASE(numSpriteArray);
+    }
 private:
-    NumSpriteArray* numSpritearray;
+    CC_SYNTHESIZE_RETAIN(NumSpriteArray*,numSpriteArray,NumSpriteArray);
 };
 
 #endif

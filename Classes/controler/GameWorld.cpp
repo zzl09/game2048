@@ -17,7 +17,7 @@ bool GameWorld::init()
     }
 
     //init inner data
-    numSpriteArray = new NumSpriteArray();
+    setNumSpriteArray(NumSpriteArray::create());
 
     //fetch evi param
     Size visiableSize = Director::getInstance()->getVisibleSize();
@@ -40,9 +40,7 @@ bool GameWorld::init()
     createNumSprite(visiableSize);
 
     //init spriteMoveHelper
-    numSpriteMoveHelper = NumSpriteMoveHelper::create(numSpriteArray);
-    numSpriteMoveHelper->retain();
-    
+    setNumSpriteMoveHelper(NumSpriteMoveHelper::create(numSpriteArray));
     return true;
 }
 

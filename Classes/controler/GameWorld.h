@@ -47,11 +47,23 @@ public:
      */
     virtual void onTouchEnded(cocos2d::Touch* touch, cocos2d::Event* event);
 
+    GameWorld()
+    {
+        numSpriteMoveHelper = NULL;
+        numSpriteArray = NULL;
+    }
+
+    ~GameWorld()
+    {
+        CC_SAFE_RELEASE(numSpriteMoveHelper);
+        CC_SAFE_RELEASE(numSpriteArray);
+    }
+
 private:
     int touchX, touchY;
-    NumSpriteArray* numSpriteArray;
     ScoreSprite* scoreSprite;
-    NumSpriteMoveHelper* numSpriteMoveHelper;
+    CC_SYNTHESIZE_RETAIN(NumSpriteMoveHelper*, numSpriteMoveHelper, NumSpriteMoveHelper);
+    CC_SYNTHESIZE_RETAIN(NumSpriteArray*, numSpriteArray, NumSpriteArray);
     bool isGameOver();
     void createNumSprite(cocos2d::Size size);
     void randomFill();

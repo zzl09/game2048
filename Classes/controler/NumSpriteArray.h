@@ -12,6 +12,8 @@
 #include "cocos2d.h"
 class NumSpriteArray : public cocos2d::Ref {
 public:
+    CREATE_FUNC(NumSpriteArray);
+    virtual bool init() { return true; };
     NumSprite* numSprites[Config::LINE_COUNT][Config::LINE_COUNT];
 };
 
