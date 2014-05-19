@@ -27,7 +27,6 @@ bool NumSpriteMoveHelper::init()
 
 void NumSpriteMoveHelper::init(NumSpriteArray* numSpriteArray)
 {
-//    this->numSpriteArray=numSpriteArray;
     setNumSpriteArray(numSpriteArray);
 }
 

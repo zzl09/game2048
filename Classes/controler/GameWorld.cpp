@@ -18,6 +18,9 @@ bool GameWorld::init()
         return false;
     }
 
+    //init isMoveLocked
+    isMoveLocked=false;
+    
     //init inner data
     setNumSpriteArray(NumSpriteArray::create());
 
@@ -35,7 +38,7 @@ bool GameWorld::init()
     //init event listener
     EventListenerTouchOneByOne* touchListener = EventListenerTouchOneByOne::create();
     touchListener->onTouchBegan = CC_CALLBACK_2(GameWorld::onTouchBegan, this);
-    touchListener->onTouchEnded = CC_CALLBACK_2(GameWorld::onTouchEnded, this);
+    touchListener->onTouchMoved = CC_CALLBACK_2(GameWorld::onTouchMoved, this);
     _eventDispatcher->addEventListenerWithSceneGraphPriority(touchListener, this);
 
     //init numSpriteArray
@@ -51,35 +54,38 @@ bool GameWorld::onTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event)
     Point touchPoint = touch->getLocation();
     touchX = touchPoint.x;
     touchY = touchPoint.y;
+    isMoveLocked=false;
     return true;
 }
-void GameWorld::onTouchEnded(cocos2d::Touch* touch, cocos2d::Event* event)
-{
-    int offest = 5;
+
+void GameWorld::onTouchMoved(cocos2d::Touch *touch, cocos2d::Event *event){
     int moveScore = 0;
     Point touchPoint = touch->getLocation();
     int endX = touchX - touchPoint.x;
     int endY = touchY - touchPoint.y;
-    if (abs(endX) > abs(endY)) {
-        if (endX + offest > 0) {
-            moveScore = numSpriteMoveHelper->moveLeft();
+    if (!isMoveLocked&&abs(endX-endY)>50) {
+        if (abs(endX) > abs(endY)) {
+            if (endX  > 0) {
+                moveScore = numSpriteMoveHelper->moveLeft();
+            } else {
+                moveScore = numSpriteMoveHelper->moveRight();
+            }
         } else {
-            moveScore = numSpriteMoveHelper->moveRight();
+            if (endY > 0) {
+                moveScore = numSpriteMoveHelper->moveDown();
+            } else {
+                moveScore = numSpriteMoveHelper->moveUp();
+            }
         }
-    } else {
-        if (endY + offest > 0) {
-            moveScore = numSpriteMoveHelper->moveDown();
-        } else {
-            moveScore = numSpriteMoveHelper->moveUp();
+        if (moveScore > 0) {
+            randomFill();
+            CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic("move.wav", false);
+            scoreSprite->setScore(moveScore+scoreSprite->getScore());
+            if (isGameOver()) {
+                Director::getInstance()->replaceScene(TransitionFade::create(1, GameWorld::createScene()));
+            }
         }
-    }
-    if (moveScore > 0) {
-        randomFill();
-        CocosDenshion::SimpleAudioEngine::sharedEngine()->playBackgroundMusic("move.wav", false);
-        scoreSprite->setScore(moveScore+scoreSprite->getScore());
-        if (isGameOver()) {
-            Director::getInstance()->replaceScene(TransitionFade::create(1, GameWorld::createScene()));
-        }
+        isMoveLocked=true;
     }
 }
 

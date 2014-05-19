@@ -40,12 +40,12 @@ public:
     virtual bool onTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event);
 
     /**
-     *  touchEnded callback
+     *  touchMoved callback
      *
      *  @param touch touch description
      *  @param event event description
      */
-    virtual void onTouchEnded(cocos2d::Touch* touch, cocos2d::Event* event);
+    virtual void onTouchMoved(cocos2d::Touch* touch, cocos2d::Event* event);
 
     GameWorld()
     {
@@ -61,6 +61,7 @@ public:
 
 private:
     int touchX, touchY;
+    bool isMoveLocked;
     ScoreSprite* scoreSprite;
     CC_SYNTHESIZE_RETAIN(NumSpriteMoveHelper*, numSpriteMoveHelper, NumSpriteMoveHelper);
     CC_SYNTHESIZE_RETAIN(NumSpriteArray*, numSpriteArray, NumSpriteArray);
