@@ -80,7 +80,13 @@ void GameWorld::onTouchMoved(cocos2d::Touch* touch, cocos2d::Event* event)
         }
         if (moveResult->score > 0) {
             randomFill();
-            CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic("move.wav", false);
+            char* playSound;
+            if (moveResult->isMerged) {
+                playSound="merge.wav";
+            }else{
+                playSound="move.wav";
+            }
+            CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic(playSound, false);
             scoreSprite->setScore(moveResult->score + scoreSprite->getScore());
             if (isGameOver()) {
                 Director::getInstance()->replaceScene(TransitionFade::create(1, GameWorld::createScene()));

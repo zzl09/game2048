@@ -78,6 +78,7 @@ public:
 private:
     MoveResult *moveResult;
     CC_SYNTHESIZE_RETAIN(NumSpriteArray*, numSpriteArray, NumSpriteArray);
+    void resetMoveResult();
 };
 
 #endif

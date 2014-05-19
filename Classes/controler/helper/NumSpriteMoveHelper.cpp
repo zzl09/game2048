@@ -28,10 +28,18 @@ void NumSpriteMoveHelper::init(NumSpriteArray* numSpriteArray)
 {
     moveResult = new MoveResult();
     setNumSpriteArray(numSpriteArray);
+    resetMoveResult();
+}
+
+void NumSpriteMoveHelper::resetMoveResult()
+{
+    moveResult->score = 0;
+    moveResult->isMerged = false;
 }
 
 MoveResult* NumSpriteMoveHelper::moveLeft()
 {
+    resetMoveResult();
     int score = 0;
     for (int j = 0; j < Config::LINE_COUNT; j++) {
         for (int i = 0; i < Config::LINE_COUNT; i++) {
@@ -43,6 +51,7 @@ MoveResult* NumSpriteMoveHelper::moveLeft()
                         score = score + getNumSpriteArray()->numSprites[i][j]->getNumber();
                         i--;
                     } else if (getNumSpriteArray()->numSprites[ii][j]->getNumber() == getNumSpriteArray()->numSprites[i][j]->getNumber()) {
+                        moveResult->isMerged = true;
                         getNumSpriteArray()->numSprites[i][j]->setNumber(getNumSpriteArray()->numSprites[i][j]->getNumber() * 2);
                         getNumSpriteArray()->numSprites[ii][j]->setNumber(0);
                         score = score + getNumSpriteArray()->numSprites[i][j]->getNumber();
@@ -58,6 +67,7 @@ MoveResult* NumSpriteMoveHelper::moveLeft()
 
 MoveResult* NumSpriteMoveHelper::moveRight()
 {
+    resetMoveResult();
     int score = 0;
     for (int j = 0; j < Config::LINE_COUNT; j++) {
         for (int i = Config::LINE_COUNT - 1; i >= 0; i--) {
@@ -69,6 +79,7 @@ MoveResult* NumSpriteMoveHelper::moveRight()
                         score = score + getNumSpriteArray()->numSprites[i][j]->getNumber();
                         i++;
                     } else if (getNumSpriteArray()->numSprites[ii][j]->getNumber() == getNumSpriteArray()->numSprites[i][j]->getNumber()) {
+                        moveResult->isMerged = true;
                         getNumSpriteArray()->numSprites[i][j]->setNumber(getNumSpriteArray()->numSprites[i][j]->getNumber() * 2);
                         getNumSpriteArray()->numSprites[ii][j]->setNumber(0);
                         score = score + getNumSpriteArray()->numSprites[i][j]->getNumber();
@@ -84,6 +95,7 @@ MoveResult* NumSpriteMoveHelper::moveRight()
 
 MoveResult* NumSpriteMoveHelper::moveDown()
 {
+    resetMoveResult();
     int score = 0;
     for (int i = 0; i < Config::LINE_COUNT; i++) {
         for (int j = 0; j < Config::LINE_COUNT; j++) {
@@ -95,6 +107,7 @@ MoveResult* NumSpriteMoveHelper::moveDown()
                         score = score + getNumSpriteArray()->numSprites[i][j]->getNumber();
                         j--;
                     } else if (getNumSpriteArray()->numSprites[i][jj]->getNumber() == getNumSpriteArray()->numSprites[i][j]->getNumber()) {
+                        moveResult->isMerged = true;
                         getNumSpriteArray()->numSprites[i][j]->setNumber(getNumSpriteArray()->numSprites[i][j]->getNumber() * 2);
                         getNumSpriteArray()->numSprites[i][jj]->setNumber(0);
                         score = score + getNumSpriteArray()->numSprites[i][j]->getNumber();
@@ -110,6 +123,7 @@ MoveResult* NumSpriteMoveHelper::moveDown()
 
 MoveResult* NumSpriteMoveHelper::moveUp()
 {
+    resetMoveResult();
     int score = 0;
     for (int i = 0; i < Config::LINE_COUNT; i++) {
         for (int j = Config::LINE_COUNT - 1; j >= 0; j--) {
@@ -121,6 +135,7 @@ MoveResult* NumSpriteMoveHelper::moveUp()
                         score = score + getNumSpriteArray()->numSprites[i][j]->getNumber();
                         j++;
                     } else if (getNumSpriteArray()->numSprites[i][jj]->getNumber() == getNumSpriteArray()->numSprites[i][j]->getNumber()) {
+                        moveResult->isMerged = true;
                         getNumSpriteArray()->numSprites[i][j]->setNumber(getNumSpriteArray()->numSprites[i][j]->getNumber() * 2);
                         getNumSpriteArray()->numSprites[i][jj]->setNumber(0);
                         score = score + getNumSpriteArray()->numSprites[i][j]->getNumber();

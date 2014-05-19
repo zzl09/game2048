@@ -10,5 +10,6 @@
 #define MyGame_MoveResult_h
 struct MoveResult{
     int score;
+    bool isMerged;
 };
 #endif

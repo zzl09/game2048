@@ -16,6 +16,7 @@
 		1AFAF8BE16D35E4900DB1158 /* HelloWorld.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AFAF8BB16D35E4900DB1158 /* HelloWorld.png */; };
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
+		1F3F3254192A58B6003CBB67 /* merge.wav in Resources */ = {isa = PBXBuildFile; fileRef = 1F3F3253192A58B6003CBB67 /* merge.wav */; };
 		1FAED1861924986C00725F81 /* DataUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1FAED17D1924986C00725F81 /* DataUtil.cpp */; };
 		1FAED1871924986C00725F81 /* GameWorld.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1FAED1801924986C00725F81 /* GameWorld.cpp */; };
 		1FAED1881924986C00725F81 /* NumSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1FAED1831924986C00725F81 /* NumSprite.cpp */; };
@@ -174,6 +175,7 @@
 		1D6058910D05DD3D006BFB54 /* MyGame iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MyGame iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		1F3F324B1929FCD1003CBB67 /* MoveResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MoveResult.h; sourceTree = "<group>"; };
+		1F3F3253192A58B6003CBB67 /* merge.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = merge.wav; sourceTree = "<group>"; };
 		1FAED17D1924986C00725F81 /* DataUtil.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DataUtil.cpp; sourceTree = "<group>"; };
 		1FAED17E1924986C00725F81 /* DataUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataUtil.h; sourceTree = "<group>"; };
 		1FAED1801924986C00725F81 /* GameWorld.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameWorld.cpp; sourceTree = "<group>"; };
@@ -434,6 +436,7 @@
 		78C7DDAA14EBA5050085D0C2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				1F3F3253192A58B6003CBB67 /* merge.wav */,
 				1FC700861928E7C600034E07 /* move.wav */,
 				1FB8D53C19225CD900A084AB /* Account.9.png */,
 				1FB8D538191F269800A084AB /* CloseNormal.png */,
@@ -609,6 +612,7 @@
 				5087E78417EB970100C73F5D /* Icon-57.png in Resources */,
 				1FB8D53A191F269800A084AB /* CloseNormal.png in Resources */,
 				5087E77E17EB970100C73F5D /* Default.png in Resources */,
+				1F3F3254192A58B6003CBB67 /* merge.wav in Resources */,
 				50EF629717ECD46A001EB2F8 /* Icon-58.png in Resources */,
 				1FB8D53B191F269800A084AB /* CloseSelected.png in Resources */,
 			);
