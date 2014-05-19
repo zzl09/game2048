@@ -173,6 +173,7 @@
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D6058910D05DD3D006BFB54 /* MyGame iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MyGame iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		1F3F324B1929FCD1003CBB67 /* MoveResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MoveResult.h; sourceTree = "<group>"; };
 		1FAED17D1924986C00725F81 /* DataUtil.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DataUtil.cpp; sourceTree = "<group>"; };
 		1FAED17E1924986C00725F81 /* DataUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataUtil.h; sourceTree = "<group>"; };
 		1FAED1801924986C00725F81 /* GameWorld.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameWorld.cpp; sourceTree = "<group>"; };
@@ -355,6 +356,7 @@
 			isa = PBXGroup;
 			children = (
 				1FC7008519285B7200034E07 /* NumSpriteArray.h */,
+				1F3F324B1929FCD1003CBB67 /* MoveResult.h */,
 			);
 			name = entity;
 			path = ../Classes/entity;

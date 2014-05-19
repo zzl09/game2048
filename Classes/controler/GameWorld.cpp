@@ -19,8 +19,8 @@ bool GameWorld::init()
     }
 
     //init isMoveLocked
-    isMoveLocked=false;
-    
+    isMoveLocked = false;
+
     //init inner data
     setNumSpriteArray(NumSpriteArray::create());
 
@@ -54,38 +54,39 @@ bool GameWorld::onTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event)
     Point touchPoint = touch->getLocation();
     touchX = touchPoint.x;
     touchY = touchPoint.y;
-    isMoveLocked=false;
+    isMoveLocked = false;
     return true;
 }
 
-void GameWorld::onTouchMoved(cocos2d::Touch *touch, cocos2d::Event *event){
-    int moveScore = 0;
+void GameWorld::onTouchMoved(cocos2d::Touch* touch, cocos2d::Event* event)
+{
+    MoveResult* moveResult;
     Point touchPoint = touch->getLocation();
     int endX = touchX - touchPoint.x;
     int endY = touchY - touchPoint.y;
-    if (!isMoveLocked&&abs(endX-endY)>50) {
+    if (!isMoveLocked && abs(endX - endY) > 50) {
         if (abs(endX) > abs(endY)) {
-            if (endX  > 0) {
-                moveScore = numSpriteMoveHelper->moveLeft();
+            if (endX > 0) {
+                moveResult = numSpriteMoveHelper->moveLeft();
             } else {
-                moveScore = numSpriteMoveHelper->moveRight();
+                moveResult = numSpriteMoveHelper->moveRight();
             }
         } else {
             if (endY > 0) {
-                moveScore = numSpriteMoveHelper->moveDown();
+                moveResult = numSpriteMoveHelper->moveDown();
             } else {
-                moveScore = numSpriteMoveHelper->moveUp();
+                moveResult = numSpriteMoveHelper->moveUp();
             }
         }
-        if (moveScore > 0) {
+        if (moveResult->score > 0) {
             randomFill();
             CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic("move.wav", false);
-            scoreSprite->setScore(moveScore+scoreSprite->getScore());
+            scoreSprite->setScore(moveResult->score + scoreSprite->getScore());
             if (isGameOver()) {
                 Director::getInstance()->replaceScene(TransitionFade::create(1, GameWorld::createScene()));
             }
         }
-        isMoveLocked=true;
+        isMoveLocked = true;
     }
 }
 

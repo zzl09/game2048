@@ -24,15 +24,15 @@ bool NumSpriteMoveHelper::init()
     return true;
 }
 
-
 void NumSpriteMoveHelper::init(NumSpriteArray* numSpriteArray)
 {
+    moveResult = new MoveResult();
     setNumSpriteArray(numSpriteArray);
 }
 
-int NumSpriteMoveHelper::moveLeft()
+MoveResult* NumSpriteMoveHelper::moveLeft()
 {
-    int result = 0;
+    int score = 0;
     for (int j = 0; j < Config::LINE_COUNT; j++) {
         for (int i = 0; i < Config::LINE_COUNT; i++) {
             for (int ii = i + 1; ii < Config::LINE_COUNT; ii++) {
@@ -40,24 +40,25 @@ int NumSpriteMoveHelper::moveLeft()
                     if (getNumSpriteArray()->numSprites[i][j]->getNumber() <= 0) {
                         getNumSpriteArray()->numSprites[i][j]->setNumber(getNumSpriteArray()->numSprites[ii][j]->getNumber());
                         getNumSpriteArray()->numSprites[ii][j]->setNumber(0);
-                        result = result + getNumSpriteArray()->numSprites[i][j]->getNumber();
+                        score = score + getNumSpriteArray()->numSprites[i][j]->getNumber();
                         i--;
                     } else if (getNumSpriteArray()->numSprites[ii][j]->getNumber() == getNumSpriteArray()->numSprites[i][j]->getNumber()) {
                         getNumSpriteArray()->numSprites[i][j]->setNumber(getNumSpriteArray()->numSprites[i][j]->getNumber() * 2);
                         getNumSpriteArray()->numSprites[ii][j]->setNumber(0);
-                        result = result + getNumSpriteArray()->numSprites[i][j]->getNumber();
+                        score = score + getNumSpriteArray()->numSprites[i][j]->getNumber();
                     }
                     break;
                 }
             }
         }
     }
-    return result;
+    moveResult->score = score;
+    return moveResult;
 }
 
-int NumSpriteMoveHelper::moveRight()
+MoveResult* NumSpriteMoveHelper::moveRight()
 {
-    int result = 0;
+    int score = 0;
     for (int j = 0; j < Config::LINE_COUNT; j++) {
         for (int i = Config::LINE_COUNT - 1; i >= 0; i--) {
             for (int ii = i - 1; ii >= 0; ii--) {
@@ -65,24 +66,25 @@ int NumSpriteMoveHelper::moveRight()
                     if (getNumSpriteArray()->numSprites[i][j]->getNumber() <= 0) {
                         getNumSpriteArray()->numSprites[i][j]->setNumber(getNumSpriteArray()->numSprites[ii][j]->getNumber());
                         getNumSpriteArray()->numSprites[ii][j]->setNumber(0);
-                        result = result + getNumSpriteArray()->numSprites[i][j]->getNumber();
+                        score = score + getNumSpriteArray()->numSprites[i][j]->getNumber();
                         i++;
                     } else if (getNumSpriteArray()->numSprites[ii][j]->getNumber() == getNumSpriteArray()->numSprites[i][j]->getNumber()) {
                         getNumSpriteArray()->numSprites[i][j]->setNumber(getNumSpriteArray()->numSprites[i][j]->getNumber() * 2);
                         getNumSpriteArray()->numSprites[ii][j]->setNumber(0);
-                        result = result + getNumSpriteArray()->numSprites[i][j]->getNumber();
+                        score = score + getNumSpriteArray()->numSprites[i][j]->getNumber();
                     }
                     break;
                 }
             }
         }
     }
-    return result;
+    moveResult->score = score;
+    return moveResult;
 }
 
-int NumSpriteMoveHelper::moveDown()
+MoveResult* NumSpriteMoveHelper::moveDown()
 {
-    int result = 0;
+    int score = 0;
     for (int i = 0; i < Config::LINE_COUNT; i++) {
         for (int j = 0; j < Config::LINE_COUNT; j++) {
             for (int jj = j + 1; jj < Config::LINE_COUNT; jj++) {
@@ -90,24 +92,25 @@ int NumSpriteMoveHelper::moveDown()
                     if (getNumSpriteArray()->numSprites[i][j]->getNumber() <= 0) {
                         getNumSpriteArray()->numSprites[i][j]->setNumber(getNumSpriteArray()->numSprites[i][jj]->getNumber());
                         getNumSpriteArray()->numSprites[i][jj]->setNumber(0);
-                        result = result + getNumSpriteArray()->numSprites[i][j]->getNumber();
+                        score = score + getNumSpriteArray()->numSprites[i][j]->getNumber();
                         j--;
                     } else if (getNumSpriteArray()->numSprites[i][jj]->getNumber() == getNumSpriteArray()->numSprites[i][j]->getNumber()) {
                         getNumSpriteArray()->numSprites[i][j]->setNumber(getNumSpriteArray()->numSprites[i][j]->getNumber() * 2);
                         getNumSpriteArray()->numSprites[i][jj]->setNumber(0);
-                        result = result + getNumSpriteArray()->numSprites[i][j]->getNumber();
+                        score = score + getNumSpriteArray()->numSprites[i][j]->getNumber();
                     }
                     break;
                 }
             }
         }
     }
-    return result;
+    moveResult->score = score;
+    return moveResult;
 }
 
-int NumSpriteMoveHelper::moveUp()
+MoveResult* NumSpriteMoveHelper::moveUp()
 {
-    int result = 0;
+    int score = 0;
     for (int i = 0; i < Config::LINE_COUNT; i++) {
         for (int j = Config::LINE_COUNT - 1; j >= 0; j--) {
             for (int jj = j - 1; jj >= 0; jj--) {
@@ -115,17 +118,18 @@ int NumSpriteMoveHelper::moveUp()
                     if (getNumSpriteArray()->numSprites[i][j]->getNumber() <= 0) {
                         getNumSpriteArray()->numSprites[i][j]->setNumber(getNumSpriteArray()->numSprites[i][jj]->getNumber());
                         getNumSpriteArray()->numSprites[i][jj]->setNumber(0);
-                        result = result + getNumSpriteArray()->numSprites[i][j]->getNumber();
+                        score = score + getNumSpriteArray()->numSprites[i][j]->getNumber();
                         j++;
                     } else if (getNumSpriteArray()->numSprites[i][jj]->getNumber() == getNumSpriteArray()->numSprites[i][j]->getNumber()) {
                         getNumSpriteArray()->numSprites[i][j]->setNumber(getNumSpriteArray()->numSprites[i][j]->getNumber() * 2);
                         getNumSpriteArray()->numSprites[i][jj]->setNumber(0);
-                        result = result + getNumSpriteArray()->numSprites[i][j]->getNumber();
+                        score = score + getNumSpriteArray()->numSprites[i][j]->getNumber();
                     }
                     break;
                 }
             }
         }
     }
-    return result;
+    moveResult->score = score;
+    return moveResult;
 }

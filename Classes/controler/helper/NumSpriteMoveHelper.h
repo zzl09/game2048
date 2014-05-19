@@ -13,6 +13,7 @@
 #include "NumSprite.h"
 #include "Config.h"
 #include "NumSpriteArray.h"
+#include "MoveResult.h"
 
 class NumSpriteMoveHelper : public cocos2d::Ref {
 public:
@@ -38,39 +39,45 @@ public:
     /**
      *  move to up
      *
-     *  @return score
+     *  @return MoveResult
      */
-    int moveUp();
+    MoveResult* moveUp();
 
     /**
      *  move to down
      *
-     *  @return score
+     *  @return MoveResult
      */
-    int moveDown();
+    MoveResult* moveDown();
 
     /**
      *  move to left
      *
-     *  @return score
+     *  @return MoveResult
      */
-    int moveLeft();
+    MoveResult* moveLeft();
 
     /**
      *  move to right
      *
-     *  @return score
+     *  @return MoveResult
      */
-    int moveRight();
-    
-    NumSpriteMoveHelper(){
-        numSpriteArray=NULL;
+    MoveResult* moveRight();
+
+    NumSpriteMoveHelper()
+    {
+        numSpriteArray = NULL;
+        moveResult = NULL;
     }
-    ~NumSpriteMoveHelper(){
+    ~NumSpriteMoveHelper()
+    {
         CC_SAFE_RELEASE(numSpriteArray);
+        CC_SAFE_FREE(moveResult);
     }
+
 private:
-    CC_SYNTHESIZE_RETAIN(NumSpriteArray*,numSpriteArray,NumSpriteArray);
+    MoveResult *moveResult;
+    CC_SYNTHESIZE_RETAIN(NumSpriteArray*, numSpriteArray, NumSpriteArray);
 };
 
 #endif
