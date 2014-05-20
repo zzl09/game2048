@@ -94,6 +94,7 @@ void GameWorld::onTouchMoved(cocos2d::Touch* touch, cocos2d::Event* event)
         }
         isMoveLocked = true;
     }
+    
 }
 
 void GameWorld::createNumSprite(cocos2d::Size size)
