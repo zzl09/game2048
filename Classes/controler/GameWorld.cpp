@@ -75,10 +75,12 @@ void GameWorld::onTouchEnded(cocos2d::Touch* touch, cocos2d::Event* event)
     }
     if (moveScore > 0) {
         randomFill();
+        scoreSprite -> setScore(scoreSprite -> getScore() + moveScore);
         if (isGameOver()) {
             Director::getInstance()->replaceScene(TransitionFade::create(1, GameWorld::createScene()));
         }
     }
+    
 }
 
 void GameWorld::createNumSprite(cocos2d::Size size)

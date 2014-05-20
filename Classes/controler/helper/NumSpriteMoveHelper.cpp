@@ -92,7 +92,6 @@ int NumSpriteMoveHelper::moveDown()
                         numSpritearray->numSprites[i][jj]->setNumber(0);
                         result = result + numSpritearray->numSprites[i][j]->getNumber();
                         j--;
-                        result = true;
                     } else if (numSpritearray->numSprites[i][jj]->getNumber() == numSpritearray->numSprites[i][j]->getNumber()) {
                         numSpritearray->numSprites[i][j]->setNumber(numSpritearray->numSprites[i][j]->getNumber() * 2);
                         numSpritearray->numSprites[i][jj]->setNumber(0);
