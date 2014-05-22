@@ -8,7 +8,6 @@
 
 #include "NumSprite.h"
 #include "DataUtil.h"
-#include "Config.h"
 USING_NS_CC;
 
 NumSprite* NumSprite::create(int number, int wight, int height, cocos2d::Point position)

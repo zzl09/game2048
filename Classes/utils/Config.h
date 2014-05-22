@@ -8,7 +8,6 @@
 
 #ifndef MyGame_Config_h
 #define MyGame_Config_h
-#include "cocos2d.h"
 class Config {
 public:
     /**
