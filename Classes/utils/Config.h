@@ -8,9 +8,13 @@
 
 #ifndef MyGame_Config_h
 #define MyGame_Config_h
+#include "cocos2d.h"
 class Config {
 public:
-    static const int LINE_COUNT = 4 ;
+    /**
+     *  game line count
+     */
+    static const int LINE_COUNT = 4;
 };
 
 #endif

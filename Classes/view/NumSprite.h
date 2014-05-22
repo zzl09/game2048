@@ -19,11 +19,30 @@ public:
     void init(int number, int wight, int height, cocos2d::Point position);
     void setNumber(int number);
     int getNumber();
+    cocos2d::LabelTTF* getLabelTTFCardNumber();
 
 private:
     void updateUI();
     int number;
     cocos2d::LabelTTF* labelTTFCardNumber;
     cocos2d::LayerColor* labelColorBG;
+
+    /**
+     *  get numer's background colore
+     *
+     *  @param number
+     *
+     *  @return colore
+     */
+    cocos2d::Color3B getNumberColor(int number);
+
+    /**
+     *  get the number colore
+     *
+     *  @param number
+     *
+     *  @return colore
+     */
+    cocos2d::Color3B getNumberBgColor(int number);
 };
 #endif
